@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+}
+
+.item {
+    border: 1px solid black;
+    text-align: center;
+    height: 100px;
+}
+/*//////*/
+
+.grid-cart {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+}
+.item-cart {
+    border: 1px solid red;
+    text-align: center;
+    height: 100px;
+}
