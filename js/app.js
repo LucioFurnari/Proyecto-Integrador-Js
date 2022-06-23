@@ -4,7 +4,12 @@ const GridCart = document.querySelector(".grid-cart");
 ///////
 const Compra = [];
     console.log(Compra);
+
+function pushLocalStorage (name, price) {
+    let obj = {name: name, price: price};
+    Compra.push(obj)
     localStorage.setItem("Compra",JSON.stringify(Compra))
+}
 ///////
 
 function createItem(bd) {
@@ -18,7 +23,7 @@ function createItem(bd) {
     itemName.textContent = bd.name;
     itemPrice.textContent = bd.price;
     /////
-    button.addEventListener("click",() => createItemCart(bd.name,bd.price))
+    button.addEventListener("click",() => pushLocalStorage(bd.name,bd.price))
     /////
     item.appendChild(itemName);
     item.appendChild(itemPrice);

@@ -13,17 +13,21 @@ const Productos = [
     {name: "Producto 6",price: 300},
 ];
 
-function createItemCart(name,price){
+function createItemCart(){
+    let compra = localStorage.getItem("Compra")
+    JSON.parse(compra);
     //////
-    const itemCart = document.createElement("div"),
+    compra.map(compra => {
+        const itemCart = document.createElement("div"),
             itemCartName = document.createElement("p"),
             itemCartPrice = document.createElement("p");
         itemCart.classList.add("item-cart")
 
-        itemCartName.textContent = name;
-        itemCartPrice.textContent = price;
+        itemCartName.textContent = compra.name;
+        itemCartPrice.textContent = compra.price;
         itemCart.appendChild(itemCartName);
         itemCart.appendChild(itemCartPrice);
         GridCart.appendChild(itemCart);
+    })
 }
 
