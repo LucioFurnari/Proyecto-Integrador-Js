@@ -1,17 +1,19 @@
-
+import {Productos} from "./bd.js";
+import {createItemCart} from "./cart.js";
 const Grid = document.querySelector(".grid-container");
-const GridCart = document.querySelector(".grid-cart");
 ///////
-const Compra = [];
-    console.log(Compra);
+
 
 function pushLocalStorage (name, price) {
+    let Compra = [];
     let obj = {name: name, price: price};
+    if(localStorage.getItem("Compra")){
+        Compra = JSON.parse(localStorage.getItem("Compra"));
+    }
     Compra.push(obj)
     localStorage.setItem("Compra",JSON.stringify(Compra))
 }
 ///////
-
 function createItem(bd) {
     const item = document.createElement("div"),
         itemName = document.createElement("p"),
@@ -32,3 +34,4 @@ function createItem(bd) {
 }
 
 Productos.map(item => createItem(item))
+window.addEventListener("storage",createItemCart())
