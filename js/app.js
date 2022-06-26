@@ -26,6 +26,11 @@ function createItem(bd) {
     itemPrice.textContent = bd.price;
     /////
     button.addEventListener("click",() => pushLocalStorage(bd.name,bd.price))
+    button.addEventListener("click", () => {
+        let compra = localStorage.getItem("Compra")
+        let compraArray = JSON.parse(compra);
+        createItemCart(compraArray)
+    })
     /////
     item.appendChild(itemName);
     item.appendChild(itemPrice);
@@ -34,4 +39,5 @@ function createItem(bd) {
 }
 
 Productos.map(item => createItem(item))
-window.addEventListener("storage",createItemCart())
+// window.addEventListener("storage",createItemCart())
+// window.addEventListener("DOMContentLoaded", createItemCart)

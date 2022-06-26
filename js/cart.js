@@ -1,11 +1,14 @@
 const GridCart = document.querySelector(".grid-cart");
 
+function DeleteCartItem(array,item){
+    const index = array.indexOf(item) 
+        array.splice(index,1)
+        localStorage.setItem("Compra",JSON.stringify(array))
+}
 
-export function createItemCart(){
-    let compra = localStorage.getItem("Compra")
-    let compraArray = JSON.parse(compra);
+export function createItemCart(array){
     //////
-    compraArray.map(compra => {
+    array.map(compra => {
         const itemCart = document.createElement("div"),
             itemCartName = document.createElement("p"),
             itemCartPrice = document.createElement("p"),
@@ -14,14 +17,10 @@ export function createItemCart(){
 
         itemCartName.textContent = compra.name;
         itemCartPrice.textContent = compra.price;
+        //Boton
         deleteBTN.textContent = "Delete"
-        deleteBTN.addEventListener("click", () => {  
-                const index = compraArray.indexOf(compra) 
-                compraArray.splice(index,1)
-                console.log(compra);
-                localStorage.setItem("Compra",JSON.stringify(compraArray))
-        })
-
+        deleteBTN.addEventListener("click",() => DeleteCartItem(array,compra))
+        //
         itemCart.appendChild(itemCartName);
         itemCart.appendChild(itemCartPrice);
         itemCart.appendChild(deleteBTN)
