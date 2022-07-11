@@ -1,0 +1,36 @@
+$backgroundColor: rgb(82, 208, 254);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: $backgroundColor
+    }
+
+////////
+.container-shop{
+    display: grid;
+    gap: 10px;
+    margin: 0 20px;
+    grid-template-columns: repeat(3,1fr);
+    // grid-template-rows: repeat(0,1fr);
+}
+
+.item{
+    width: 30rem;
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+        text-align: center;
+    }
+    
+}
+
+.item-description{
+    color: red;
+}

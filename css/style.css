@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(82, 208, 254);
+}
+
+.container-shop {
+  display: grid;
+  gap: 10px;
+  margin: 0 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+  width: 30rem;
+  border: solid black 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item h3 {
+  text-align: center;
+}
+
+.item-description {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */
