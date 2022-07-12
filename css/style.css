@@ -2,32 +2,81 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
 body {
-  background-color: rgb(82, 208, 254);
+  background-color: rgb(26, 26, 26);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  height: 100vh;
+  background-image: url("/assets/bgcoffe.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: rgba(177, 177, 177, 0.79);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar ul {
+  display: flex;
+}
+.navbar li {
+  padding: 20px 0;
+}
+.navbar a {
+  padding: 20px;
+}
+.navbar a:hover {
+  background-color: aqua;
 }
 
 .container-shop {
   display: grid;
-  gap: 10px;
-  margin: 0 20px;
-  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  grid-template-columns: repeat(3, 26rem);
 }
 
 .item {
-  width: 30rem;
-  border: solid black 1px;
+  border: solid violet 1px;
+  color: rgb(223, 211, 211);
+  height: 350px;
+  background-color: rgb(43, 20, 7);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 .item h3 {
   text-align: center;
 }
+.item span {
+  font-size: 40px;
+}
 
 .item-description {
-  color: red;
+  color: rgb(223, 211, 211);
+}
+
+@media only screen and (max-width: 1300px) {
+  .container-shop {
+    grid-template-columns: repeat(2, 26rem);
+  }
+}
+@media only screen and (max-width: 880px) {
+  .container-shop {
+    grid-template-columns: repeat(1, 20rem);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

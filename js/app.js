@@ -9,7 +9,7 @@ function createItems(arr){
     <h3>${arr.name}</h3>
     <img src=${arr.img}>
     <p class="item-description">${arr.description}</p>
-    <span>${arr.price}</span>
+    <span>${arr.price} $</span>
     `
     shopContainerGrid.appendChild(item);
 }
