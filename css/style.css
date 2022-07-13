@@ -11,15 +11,17 @@ body {
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 header {
-  height: 100vh;
+  min-height: 100vh;
   background-image: url("/assets/bgcoffe.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .navbar {
@@ -50,7 +52,7 @@ header {
 .item {
   border: solid violet 1px;
   color: rgb(223, 211, 211);
-  height: 350px;
+  height: 450px;
   background-color: rgb(43, 20, 7);
   display: flex;
   flex-direction: column;
