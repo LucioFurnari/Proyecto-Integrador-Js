@@ -13,4 +13,18 @@ export const Products = [
 ];
 
 
-let obj = []
+export let obj = [
+    {name:"cafe", products: [
+            {name:"cafe 1", description:"lalalala", price:100, img:""},
+            {name:"cafe 2", description:"lalalala", price:100, img:""},
+            {name:"cafe 3", description:"lalalala", price:100, img:""},
+            {name:"cafe 4", description:"lalalala", price:100, img:""},
+        ]
+    },
+    {name:"chocolate", products: [
+            {name:"chocolate 1", description:"lalalala", price:100, img:""},
+            {name:"chocolate 2", description:"lalalala", price:100, img:""}
+        ]
+    }
+];
+
