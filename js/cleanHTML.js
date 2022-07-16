@@ -1,5 +1,4 @@
-import { shopContainerGrid } from "./app.js";
 
-export function cleanHTML(){
-    shopContainerGrid.innerHTML = "";
+export function cleanHTML(elem){
+    elem.innerHTML = "";
 }
