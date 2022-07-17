@@ -47,7 +47,10 @@ header {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 26rem);
-  min-height: 100vh;
+}
+
+.item-hide {
+  display: none;
 }
 
 .item {

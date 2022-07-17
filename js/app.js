@@ -1,22 +1,23 @@
-import { Products, obj } from "./bd.js";
-import { createItemShop, createItems } from "./createItem.js";
+import { Products, obj, products } from "./bd.js";
+import { itemFilter, createItems } from "./createItem.js";
 import { cleanHTML } from "./cleanHTML.js";
 
 export const shopContainerGrid = document.querySelector(".container-shop"),
-    shopBtnFilter = document.querySelector(".buttons-filter"),
+    shopFilter = document.querySelector(".buttons-filter"),
     shopBtnShow = document.querySelector(".btn-showshop");
     
-function createBtn(val){
-    const button = document.createElement("button");
-    button.textContent = val.name;
-    button.addEventListener("focus",(event) => obj.map((item) => createItemShop(event.target.textContent,item)));
-    shopBtnFilter.appendChild(button);
-}
+
+window.addEventListener("DOMContentLoaded",createItems(products,shopContainerGrid));
+// shopBtnShow.addEventListener("click",() => {
+//     cleanHTML(shopContainerGrid)
+//     createItems(products,shopContainerGrid)})
+const shopItems = document.querySelectorAll(".item"); // Guarda los items del shop //
+shopFilter.addEventListener("click",(event) =>{
+    itemFilter(shopItems, event.target.value);
+    console.log(event.target.value);
+})
 
 
-window.addEventListener("DOMContentLoaded",createItems(Products,shopContainerGrid));
-shopBtnShow.addEventListener("click",() => {
-    cleanHTML(shopContainerGrid)
-    createItems(Products,shopContainerGrid)})
-obj.map(createBtn)
+console.log(shopItems);
+
 

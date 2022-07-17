@@ -1,23 +1,22 @@
-import { shopContainerGrid } from "./app.js";
-import { cleanHTML } from "./cleanHTML.js";
 
-export function createItemShop(btn,val){
-    if(btn == val.name){
-        cleanHTML(shopContainerGrid)
-        for(let i=0; i < val.products.length;i++){
-            const itemShop = document.createElement("div");
-            itemShop.classList.add("item")
-            itemShop.innerHTML = `
-                <h3>${val.products[i].name}</h3>
-            `;
-            shopContainerGrid.appendChild(itemShop);
-        }
-    }
-};
+// export function createItemShop(btn,val){
+//     if(btn == val.name){
+//         cleanHTML(shopContainerGrid)
+//         for(let i=0; i < val.products.length;i++){
+//             const itemShop = document.createElement("div");
+//             itemShop.classList.add("item")
+//             itemShop.innerHTML = `
+//                 <h3>${val.products[i].name}</h3>
+//             `;
+//             shopContainerGrid.appendChild(itemShop);
+//         }
+//     }
+// };
 
-export function createItems(arr, elem){
+export function createItems(arr, elem){ // Crea card de los productos //
     for(let i=0; i < arr.length;i++){
         const item = document.createElement("div");
+        item.setAttribute("category",arr[i].category);
         item.classList.add("item");
         item.innerHTML = `
             <h3>${arr[i].name}</h3>
@@ -30,6 +29,18 @@ export function createItems(arr, elem){
     }
 }
 
-export function createBtnCategory(arr,elem){
-    
+export function itemFilter(node,val){ // Filtra los productos del shop a travez de los botones //
+    for(let j=0; j<node.length;j++){
+        node[j].classList.add("item");
+        node[j].classList.remove("item-hide");
+        if(node[j].getAttribute("category") != val){
+            node[j].classList.remove("item");
+            node[j].classList.toggle("item-hide");
+        }
+        if(val == "shop"){
+            node[j].classList.add("item");
+            node[j].classList.remove("item-hide");
+        }
+        console.log(node[j].getAttribute("category"));
+    }
 }

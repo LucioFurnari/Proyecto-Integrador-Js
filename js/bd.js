@@ -27,7 +27,7 @@ export let obj = [
     }
 ];
 
-const products = [
+export const products = [
     {name:"cafe 1", description:"lalala",price:150, img:"", category:"cafe"},
     {name:"cafe 2", description:"lalala",price:170, img:"", category:"cafe"},
     {name:"cafe 3", description:"lalala",price:120, img:"", category:"cafe"},
