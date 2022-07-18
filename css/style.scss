@@ -32,6 +32,9 @@ header{
 //// NavBar ////
 .navbar{
     background-color: $backgroundNavbar;
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,7 +62,19 @@ header{
     }
     
 }
-
+// Cart //
+.cart {
+    position: absolute;
+    position: fixed;
+    right:0;
+    top:58px;
+    width: 200px;
+    height: 600px;
+    background-color: rebeccapurple;
+}
+.cart-hide {
+    display: none;
+}
 
 //// Shop ///
 .container-shop{

@@ -1,14 +1,15 @@
 import { Products, obj, products } from "./bd.js";
 import { itemFilter, createItems, FilterInput } from "./createItem.js";
 import { cleanHTML } from "./cleanHTML.js";
+import { cartButton, cartContainer  } from "./cart.js";
 
 export const shopContainerGrid = document.querySelector(".container-shop"), // DOM Elements //
     shopFilter = document.querySelector(".buttons-filter"),
     shopBtnShow = document.querySelector(".btn-showshop"),
-    inputFilter = document.querySelector(".input-filter"),
-    cartButton = document.querySelector(".cart-btn");
+    inputFilter = document.querySelector(".input-filter");
     
 
+    
 window.addEventListener("DOMContentLoaded",createItems(products,shopContainerGrid));// Crea items del shop //
 const shopItems = document.querySelectorAll(".item"); // Guarda los items del shop //
 
@@ -21,6 +22,10 @@ inputFilter.addEventListener("input",(e) => { // Filtra los productos con el inp
     FilterInput(shopItems,e.target.value)
     console.log(e.target.value);
 })
+
+cartButton.addEventListener("click",() => {
+    cartContainer.classList.toggle("cart-hide");
+    });
 
 console.log(shopItems[1].children[0].textContent);
 // console.log(shopItems);

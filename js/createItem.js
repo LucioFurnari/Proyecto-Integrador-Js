@@ -49,12 +49,13 @@ export function itemFilter(node,val){ // Filtra los productos del shop a travez 
 
 export function FilterInput(node,val){
     for(let l=0; l<node.length; l++){
-        node[l].classList.toggle("item");
-        node[l].classList.add("item-hide");
         if(node[l].children[0].textContent.includes(val)){
             node[l].classList.add("item");
             node[l].classList.remove("item-hide");
         }
+        if (!node[l].children[0].textContent.includes(val)){
+            node[l].classList.remove("item");
+            node[l].classList.add("item-hide");           
+        }
     }
-    
 }

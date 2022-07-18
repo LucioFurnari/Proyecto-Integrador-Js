@@ -26,6 +26,9 @@ header {
 
 .navbar {
   background-color: rgba(177, 177, 177, 0.79);
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,6 +50,20 @@ header {
 }
 .navbar .cart-btn:hover {
   background-color: aqua;
+}
+
+.cart {
+  position: absolute;
+  position: fixed;
+  right: 0;
+  top: 58px;
+  width: 200px;
+  height: 600px;
+  background-color: rebeccapurple;
+}
+
+.cart-hide {
+  display: none;
 }
 
 .container-shop {
