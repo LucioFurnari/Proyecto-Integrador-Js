@@ -23,7 +23,10 @@ export function createItems(arr, elem){ // Crea card de los productos //
         <img src=${arr[i].img}>
         <p class="item-description">${arr[i].description}</p>
         <span>${arr[i].price} $</span>
-        <button class="buy-btn">Comprar</button>
+        <div>
+            <button class="buy-btn">Comprar</button>
+            <input type="number" min=1>
+        </div>
         `
         elem.appendChild(item);
     }

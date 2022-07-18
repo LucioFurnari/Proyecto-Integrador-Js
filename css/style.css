@@ -56,10 +56,10 @@ header {
   position: absolute;
   position: fixed;
   right: 0;
-  top: 58px;
+  top: 57px;
   width: 200px;
   height: 600px;
-  background-color: rebeccapurple;
+  background-color: rgba(177, 177, 177, 0.79);
 }
 
 .cart-hide {
@@ -91,6 +91,9 @@ header {
 }
 .item span {
   font-size: 40px;
+}
+.item input {
+  width: 40px;
 }
 
 .item-description {

@@ -2,6 +2,7 @@ $backgroundColor: rgb(26, 26, 26);
 $backgroundItem: rgb(43, 20, 7);
 $backgroundNavbar: rgba(177, 177, 177, 0.79);
 $textColor: rgb(223, 211, 211);
+$cartBackground: rgba(177, 177, 177, 0.79);
 
 
 *{
@@ -67,10 +68,11 @@ header{
     position: absolute;
     position: fixed;
     right:0;
-    top:58px;
+    top:57px;
     width: 200px;
     height: 600px;
-    background-color: rebeccapurple;
+
+    background-color: $cartBackground;
 }
 .cart-hide {
     display: none;
@@ -105,6 +107,9 @@ header{
     }
     span{
         font-size: 40px;
+    }
+    input{
+        width: 40px;
     }
 }
 
