@@ -31,3 +31,15 @@ console.log(shopItems[1].children[0].textContent);
 // console.log(shopItems);
 
 
+const buyButton = document.querySelectorAll(".buy-btn");
+
+buyButton.forEach(btn => {
+    btn.addEventListener("click", () => {
+        console.log(btn.parentNode.parentNode.children[0].textContent);
+        console.log(btn.parentNode.parentNode.children);
+        console.log(btn);
+    })
+})
+window.addEventListener("click",e => {console.log(e.target.value);})
+console.log(buyButton);
+

@@ -39,13 +39,13 @@ export function itemFilter(node,val){ // Filtra los productos del shop a travez 
             node[j].classList.remove("item-hide");
             if(node[j].getAttribute("category") != val){
                 node[j].classList.remove("item");
-                node[j].classList.toggle("item-hide");
+                node[j].classList.add("item-hide");
             }
             if(val == "shop"){
                 node[j].classList.add("item");
                 node[j].classList.remove("item-hide");
             }
-            console.log(node[j].getAttribute("category"));
+            // console.log(node[j].getAttribute("category"));
         }
     }
 }
