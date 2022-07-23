@@ -1,4 +1,4 @@
-import { Products, obj, products } from "./bd.js";
+import { products } from "./bd.js";
 import { itemFilter, createItems, FilterInput } from "./createItem.js";
 import { cleanHTML } from "./cleanHTML.js";
 import { cartButton, cartContainer, itemCart } from "./cart.js";
@@ -64,14 +64,18 @@ function buyProduct(val){
         let name = val.parentNode.parentNode.children[0].textContent
         let price = parseInt(val.parentNode.parentNode.children[3].textContent);
         let quantity = parseInt(val.parentNode.children[1].value);
-
+        let id = parseInt(val.parentNode.parentNode.getAttribute("id"))
         
-        let buyitem = new itemCart(name,price,quantity); // Crea el objeto del item a comprar 
-        
+        let buyitem = new itemCart(name,price,quantity,id); // Crea el objeto del item a comprar 
         if(localStorage.getItem("Compra")){
             let localSt = JSON.parse(localStorage.getItem("Compra"));// Llama al item del localStorage
             comprasArray = localSt; // Ahora el array pasa a ser el contenido del local
             comprasArray.push(buyitem) // Se pushea el obj al nuevo array
+            comprasArray.map(elem =>{
+                if(buyitem.id == elem.id){
+                    elem.qnt += buyitem.qnt;
+                }
+            })
             localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el nuevo item al local
         }else {
             comprasArray.push(buyitem); 

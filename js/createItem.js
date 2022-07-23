@@ -17,6 +17,7 @@ export function createItems(arr, elem){ // Crea card de los productos //
     for(let i=0; i < arr.length;i++){
         const item = document.createElement("div");
         item.setAttribute("category",arr[i].category);
+        item.setAttribute("id",arr[i].id)
         item.classList.add("item");
         item.innerHTML = `
         <h3>${arr[i].name}</h3>
