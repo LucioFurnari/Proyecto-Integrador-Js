@@ -59,11 +59,19 @@ header {
   top: 57px;
   width: 200px;
   height: 600px;
+  display: flex;
+  flex-direction: column;
   background-color: rgba(177, 177, 177, 0.79);
 }
 
 .cart-hide {
   display: none;
+}
+
+.cart-item {
+  width: 100%;
+  height: 40px;
+  background-color: aquamarine;
 }
 
 .container-shop {

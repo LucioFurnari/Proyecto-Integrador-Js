@@ -11,4 +11,50 @@ export class itemCart {
     }
 }
 
-// let objitem = new itemCart("Chocolate Negro",150,2);
+export function buyProduct(val){
+    if(val.value == "buyBtn") { // Guarda los valores del item a comprar
+        let comprasArray = []; // Crea array para el localStorage
+        let name = val.parentNode.parentNode.children[0].textContent
+        let price = parseInt(val.parentNode.parentNode.children[3].textContent);
+        let quantity = parseInt(val.parentNode.children[1].value);
+        let id = parseInt(val.parentNode.parentNode.getAttribute("id"))
+        let booleano = false; // Valor booleano para confirmar obj en el array
+        
+        let buyitem = new itemCart(name,price,quantity,id); // Crea el objeto del item a comprar 
+        if(localStorage.getItem("Compra")){
+            let localSt = JSON.parse(localStorage.getItem("Compra"));// Llama al item del localStorage
+            comprasArray = localSt; // Ahora el array pasa a ser el contenido del local
+            comprasArray.forEach(elem => { // Busca si hay un obj en el array que tenga la misma ID que la compra
+                if(elem.id == buyitem.id){ 
+                    booleano = true;
+                    elem.qnt += buyitem.qnt; // Si encuentra, solamente suma el valor qnt con el de la compra
+                }
+            });
+            if(booleano == false){ // Si es false pushea el nuevo obj al array
+                comprasArray.push(buyitem) // Se pushea el obj al nuevo array
+            }
+
+            localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el nuevo item al local
+        }else {
+            comprasArray.push(buyitem); 
+            localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el array con obj al local
+        }
+        
+    }       
+}
+
+
+export function createItemCart (obj){
+    const cartDiv = document.createElement("div"),
+        itemName = document.createElement("p"),
+        itemPrice = document.createElement("span"),
+        itemQnt = document.createElement("span");
+
+    itemName.textContent = obj.name;
+    itemPrice.textContent = obj.price;
+    itemQnt.textContent = obj.qnt;
+    cartDiv.append(itemName,itemPrice,itemQnt);
+    cartDiv.classList.add("cart-item");
+}
+
+
