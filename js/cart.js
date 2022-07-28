@@ -39,22 +39,20 @@ export function buyProduct(val){
             comprasArray.push(buyitem); 
             localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el array con obj al local
         }
-        
-    }       
+
+    }   
 }
 
 
 export function createItemCart (obj){
     const cartDiv = document.createElement("div"),
-        itemName = document.createElement("p"),
-        itemPrice = document.createElement("span"),
-        itemQnt = document.createElement("span");
-
-    itemName.textContent = obj.name;
-    itemPrice.textContent = obj.price;
-    itemQnt.textContent = obj.qnt;
-    cartDiv.append(itemName,itemPrice,itemQnt);
+        cartDiv.innerHTML = `
+        <p>${obj.name}</p>
+        <span>${obj.price}</span>
+        <span>Cantidad: ${obj.qnt}</span>
+        `
     cartDiv.classList.add("cart-item");
+    cartContainer.appendChild(cartDiv)
 }
 
 

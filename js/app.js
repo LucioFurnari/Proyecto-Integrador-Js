@@ -51,11 +51,10 @@ window.addEventListener("click",e => {
     // console.log(e.target.value)
 })
 
-window.addEventListener("storage", () => {
-    console.log("local cambiado");
-    let compraArray = JSON.parse(localStorage.getItem("Compra"));
-    compraArray.map(elem => createItemCart(elem));
-} )
+// let compraArray = JSON.parse(localStorage.getItem("Compra"));
+// compraArray.map(elem => createItemCart(elem));    
 
 
-
+let compraArray = JSON.parse(localStorage.getItem("Compra"));
+compraArray.map(elem => createItemCart(elem));    
+cartContainer.removeChild(cartContainer.firstChild)
