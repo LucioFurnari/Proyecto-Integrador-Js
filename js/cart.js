@@ -35,9 +35,17 @@ export function buyProduct(val){
             }
 
             localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el nuevo item al local
+            cartContainer.innerHTML="";
+            let compraArray = JSON.parse(localStorage.getItem("Compra"));
+            compraArray.map(elem => createItemCart(elem));   
         }else {
             comprasArray.push(buyitem); 
             localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el array con obj al local
+            
+            cartContainer.innerHTML="";
+            let compraArray = JSON.parse(localStorage.getItem("Compra"));
+            compraArray.map(elem => createItemCart(elem));    
+            
         }
 
     }   
@@ -45,8 +53,8 @@ export function buyProduct(val){
 
 
 export function createItemCart (obj){
-    const cartDiv = document.createElement("div"),
-        cartDiv.innerHTML = `
+    const cartDiv = document.createElement("div");
+    cartDiv.innerHTML = `
         <p>${obj.name}</p>
         <span>${obj.price}</span>
         <span>Cantidad: ${obj.qnt}</span>
