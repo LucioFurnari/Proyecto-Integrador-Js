@@ -39,13 +39,6 @@ cartButton.addEventListener("click",() => {
 //////////////////////////////////
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// Probando obj con class //
-let objitem = new itemCart("Chocolate blanco",120,1);
-console.log(objitem);
-
-/////
-
 window.addEventListener("click",e => {
     buyProduct(e.target);
     // console.log(e.target.value)
@@ -55,6 +48,31 @@ window.addEventListener("click",e => {
 // compraArray.map(elem => createItemCart(elem));    
 
 
-let compraArray = JSON.parse(localStorage.getItem("Compra"));
-compraArray.map(elem => createItemCart(elem));    
-cartContainer.removeChild(cartContainer.firstChild)
+
+
+    cleanHTML(cartContainer)
+    let compraArray = JSON.parse(localStorage.getItem("Compra"));
+    compraArray.map(elem => createItemCart(elem));   
+    
+    
+    const itemQntCart = document.querySelectorAll(".cart-item input");
+    itemQntCart.forEach(item => {
+        item.addEventListener("change", (e) => {
+            console.log(item.parentElement.firstElementChild.textContent);
+            let name = item.parentElement.firstElementChild.textContent;
+            let value = e.target.value;
+            compraArray.map(elem => {
+                if(elem.name == name){
+                    elem.qnt = value;
+                }
+                localStorage.setItem("Compra",JSON.stringify(compraArray))
+            })
+            
+            console.log(e.target.value);
+        })
+    })
+    console.log(itemQntCart);
+    
+    
+    
+

@@ -1,4 +1,6 @@
 
 export function cleanHTML(elem){
-    elem.innerHTML = "";
+    while (elem.firstChild) {
+        elem.removeChild(elem.firstChild)
+    }
 }
