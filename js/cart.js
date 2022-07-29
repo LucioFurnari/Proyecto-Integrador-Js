@@ -59,10 +59,30 @@ export function createItemCart (obj){
     cartDiv.classList.add("cart-item");
     cartDiv.innerHTML = `
         <p>${obj.name}</p>
-        <span>${obj.price}</span>
-        <input type="number" value="${obj.qnt}"></input>
+        <span>$${obj.price}</span>
+        <input min="1" type="number" value="${obj.qnt}"></input>
+        <button value="delete-item">X</button>
         `
     
     cartContainer.appendChild(cartDiv)
 }
 
+
+cartContainer.addEventListener("click",(e) =>{
+    deleteItemCart(e.target)
+})
+
+function deleteItemCart(e){
+    if(e.value == "delete-item"){
+        let name = e.parentElement.firstElementChild.textContent;
+        let compraArray = JSON.parse(localStorage.getItem("Compra"));
+        compraArray.map((item,i) => {
+            if(item.name == name){
+                compraArray.splice(i,1)
+                e.parentElement.remove()
+            }
+        })
+        localStorage.setItem("Compra",JSON.stringify(compraArray))
+        console.log(name);
+    }
+}
