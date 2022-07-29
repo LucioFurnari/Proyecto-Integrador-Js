@@ -1,7 +1,7 @@
 import { products } from "./bd.js";
 import { itemFilter, createItems, FilterInput } from "./createItem.js";
 import { cleanHTML } from "./cleanHTML.js";
-import { cartButton, cartContainer, itemCart, buyProduct, createItemCart } from "./cart.js";
+import { cartButton, cart, cartContainer, itemCart, buyProduct, createItemCart, totalPrice } from "./cart.js";
 
 export const shopContainerGrid = document.querySelector(".container-shop"), // DOM Elements //
     shopFilter = document.querySelector(".buttons-filter"),
@@ -34,7 +34,7 @@ inputFilter.addEventListener("input",(e) => { // Filtra los productos con el inp
 ///// Boton del carrito /////
 
 cartButton.addEventListener("click",() => {
-    cartContainer.classList.toggle("cart-hide");
+    cart.classList.toggle("cart-hide");
     });
 //////////////////////////////////
 
@@ -53,14 +53,14 @@ window.addEventListener("click",e => {
     cleanHTML(cartContainer)
     let compraArray = JSON.parse(localStorage.getItem("Compra"));
     compraArray.map(elem => createItemCart(elem));   
-    
+    compraArray.map(obj => totalPrice(obj));
     
     const itemQntCart = document.querySelectorAll(".cart-item input");
     itemQntCart.forEach(item => {
         item.addEventListener("change", (e) => {
-            console.log(item.parentElement.firstElementChild.textContent);
+            // console.log(item.parentElement.firstElementChild.textContent);
             let name = item.parentElement.firstElementChild.textContent;
-            let value = e.target.value;
+            let value = parseInt(e.target.value);
             compraArray.map(elem => {
                 if(elem.name == name){
                     elem.qnt = value;

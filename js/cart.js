@@ -1,7 +1,9 @@
 import { cleanHTML } from "./cleanHTML.js";
 export const cartButton = document.querySelector(".cart-btn"),
-cartContainer = document.querySelector(".cart");
-
+cartContainer = document.querySelector(".cart-container"),
+cart = document.querySelector(".cart"),
+cartTotal = document.querySelector(".cart-total p");
+let total = 0;
 
 export class itemCart {
     constructor(name,price,qnt,id){
@@ -40,6 +42,7 @@ export function buyProduct(val){
             cleanHTML(cartContainer)
             let compraArray = JSON.parse(localStorage.getItem("Compra"));
             compraArray.map(elem => createItemCart(elem));   
+            compraArray.map(obj => totalPrice(obj));// Precio total
         }else {
             comprasArray.push(buyitem); 
             localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el array con obj al local
@@ -47,6 +50,7 @@ export function buyProduct(val){
             cleanHTML(cartContainer)
             let compraArray = JSON.parse(localStorage.getItem("Compra"));
             compraArray.map(elem => createItemCart(elem));    
+            compraArray.map(obj => totalPrice(obj));// Precio total
             
         }
 
@@ -85,4 +89,10 @@ function deleteItemCart(e){
         localStorage.setItem("Compra",JSON.stringify(compraArray))
         console.log(name);
     }
+}
+
+
+export function totalPrice(obj){
+    total += (obj.price * obj.qnt);
+    cartTotal.textContent = total;
 }

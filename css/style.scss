@@ -71,10 +71,12 @@ header{
     top:57px;
     // width: 200px;
     height: 600px;
+    // overflow-y: scroll;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
     background-color: $cartBackground;
 }
@@ -90,7 +92,9 @@ header{
     height: 40px;
     background-color: aquamarine;
 }
-
+.cart-total{
+    background-color: aquamarine;
+}
 //// Shop ///
 .container-shop{
     display: grid;
