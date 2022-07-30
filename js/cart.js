@@ -3,7 +3,7 @@ export const cartButton = document.querySelector(".cart-btn"),
 cartContainer = document.querySelector(".cart-container"),
 cart = document.querySelector(".cart"),
 cartTotal = document.querySelector(".cart-total p");
-let total = 0;
+
 
 export class itemCart {
     constructor(name,price,qnt,id){
@@ -39,10 +39,9 @@ export function buyProduct(val){
 
             localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el nuevo item al local
             
-            cleanHTML(cartContainer)
-            let compraArray = JSON.parse(localStorage.getItem("Compra"));
-            compraArray.map(elem => createItemCart(elem));   
-            compraArray.map(obj => totalPrice(obj));// Precio total
+            
+
+            
         }else {
             comprasArray.push(buyitem); 
             localStorage.setItem("Compra",JSON.stringify(comprasArray)); // Se inserta el array con obj al local
@@ -50,10 +49,14 @@ export function buyProduct(val){
             cleanHTML(cartContainer)
             let compraArray = JSON.parse(localStorage.getItem("Compra"));
             compraArray.map(elem => createItemCart(elem));    
-            compraArray.map(obj => totalPrice(obj));// Precio total
+            
             
         }
-
+        cleanHTML(cartContainer)
+        let compraArray = JSON.parse(localStorage.getItem("Compra"));
+        compraArray.map(elem => createItemCart(elem));   
+        totalPrice(compraArray);// Precio total
+            
     }   
 }
 
@@ -87,12 +90,18 @@ function deleteItemCart(e){
             }
         })
         localStorage.setItem("Compra",JSON.stringify(compraArray))
-        console.log(name);
+        // console.log(name);
+        totalPrice(compraArray)// Total del precio
     }
 }
 
 
-export function totalPrice(obj){
-    total += (obj.price * obj.qnt);
-    cartTotal.textContent = total;
-}
+export function totalPrice(array){
+    let total = 0;
+    array.forEach(obj => {
+        total += (obj.price * obj.qnt);
+        // console.log(total);
+        cartTotal.textContent = `Total : ${total}`;
+        
+    })    
+    }

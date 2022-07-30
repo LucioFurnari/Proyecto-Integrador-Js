@@ -6,18 +6,37 @@ import { cartButton, cart, cartContainer, itemCart, buyProduct, createItemCart, 
 export const shopContainerGrid = document.querySelector(".container-shop"), // DOM Elements //
     shopFilter = document.querySelector(".buttons-filter"),
     shopBtnShow = document.querySelector(".btn-showshop"),
-    inputFilter = document.querySelector(".input-filter");
+    inputFilter = document.querySelector(".input-filter"),
+    shopItems = document.querySelectorAll(".item"), // Guarda los items del shop //
+    itemQntCart = document.querySelectorAll(".cart-item input");
     
-    
 
-window.addEventListener("DOMContentLoaded",createItems(products,shopContainerGrid));// Crea items del shop //
-const shopItems = document.querySelectorAll(".item"); // Guarda los items del shop //
+window.addEventListener("DOMContentLoaded",() => {
+    createItems(products,shopContainerGrid)// Crea items del shop //
+    cleanHTML(cartContainer)//
+    let compraArray = JSON.parse(localStorage.getItem("Compra")); // Resumir este codigo
+    compraArray.map(elem => createItemCart(elem));  // 
+    shopFilter.addEventListener("click",(event) =>{ // Filtra los productos con los botones //
+        itemFilter(shopItems, event.target.value);
+        // console.log(event.target.value);
+    })
 
+    totalPrice(compraArray)// Precio total se muestra al iniciar la pagina
+});
 
-shopFilter.addEventListener("click",(event) =>{ // Filtra los productos con los botones //
-    itemFilter(shopItems, event.target.value);
-    // console.log(event.target.value);
+///// Boton del carrito /////
+
+cartButton.addEventListener("click",() => { // Aparece y desaparece el carrito
+    cart.classList.toggle("cart-hide");
+    });
+
+window.addEventListener("click",e => { // Deja comprar los items del shop
+    buyProduct(e.target);
+    // console.log(e.target.value)
 })
+
+
+///////////////////////////////
 
 inputFilter.addEventListener("input",(e) => { // Filtra los productos con el input //
     let inputValue = e.target.value.toLowerCase()
@@ -31,31 +50,13 @@ inputFilter.addEventListener("input",(e) => { // Filtra los productos con el inp
 })
 
 
-///// Boton del carrito /////
-
-cartButton.addEventListener("click",() => {
-    cart.classList.toggle("cart-hide");
-    });
-//////////////////////////////////
 
 
-window.addEventListener("click",e => {
-    buyProduct(e.target);
-    // console.log(e.target.value)
-})
-
-// let compraArray = JSON.parse(localStorage.getItem("Compra"));
-// compraArray.map(elem => createItemCart(elem));    
-
-
-
-
-    cleanHTML(cartContainer)
-    let compraArray = JSON.parse(localStorage.getItem("Compra"));
-    compraArray.map(elem => createItemCart(elem));   
-    compraArray.map(obj => totalPrice(obj));
     
-    const itemQntCart = document.querySelectorAll(".cart-item input");
+    
+    // compraArray.forEach(obj => totalPrice(obj));// Precio total
+    
+    
     itemQntCart.forEach(item => {
         item.addEventListener("change", (e) => {
             // console.log(item.parentElement.firstElementChild.textContent);
@@ -68,7 +69,7 @@ window.addEventListener("click",e => {
                 localStorage.setItem("Compra",JSON.stringify(compraArray))
             })
             
-            console.log(e.target.value);
+            // console.log(e.target.value);
         })
     })
     console.log(itemQntCart);
