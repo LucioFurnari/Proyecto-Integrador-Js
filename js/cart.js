@@ -98,6 +98,9 @@ function deleteItemCart(e){
 
 export function totalPrice(array){
     let total = 0;
+    if(array.length == 0){
+        cartTotal.textContent = `Total : `
+    }
     array.forEach(obj => {
         total += (obj.price * obj.qnt);
         // console.log(total);
