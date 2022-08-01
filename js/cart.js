@@ -62,17 +62,23 @@ export function buyProduct(val){
 }
 
 
-export function createItemCart (obj){
-    const cartDiv = document.createElement("div");
-    cartDiv.classList.add("cart-item");
-    cartDiv.innerHTML = `
-        <p>${obj.name}</p>
-        <span>$${obj.price}</span>
-        <input min="1" type="number" value="${obj.qnt}"></input>
-        <button value="delete-item">X</button>
-        `
-    
-    cartContainer.appendChild(cartDiv)
+export function createItemCart (){
+    if(localStorage.getItem("Compra") != null){
+        cleanHTML(cartContainer)//
+        let array = JSON.parse(localStorage.getItem("Compra"));
+        for(let i=0;i < array.length;i++){
+            const cartDiv = document.createElement("div");
+            cartDiv.classList.add("cart-item");
+            cartDiv.innerHTML = `
+                <p>${array[i].name}</p>
+                <span>$${array[i].price}</span>
+                <input min="1" type="number" value="${array[i].qnt}"></input>
+                <button value="delete-item">X</button>
+                `
+
+            cartContainer.appendChild(cartDiv)
+        }
+    }
 }
 
 
@@ -98,17 +104,19 @@ function deleteItemCart(e){
 
 
 export function totalPrice(){
-    let compraArray = JSON.parse(localStorage.getItem("Compra"));
-    let total = 0;
-    if(compraArray.length == 0){
-        cartTotal.textContent = `Total : `
-    }
-    compraArray.forEach(obj => {
-        total += (obj.price * obj.qnt);
-        // console.log(total);
-        cartTotal.textContent = `Total : ${total}`;
-        
-    })    
+    if(localStorage.getItem("Compra") != null){
+        let compraArray = JSON.parse(localStorage.getItem("Compra"));
+        let total = 0;
+        if(compraArray.length == 0){
+            cartTotal.textContent = `Total : `
+        }
+        compraArray.forEach(obj => {
+            total += (obj.price * obj.qnt);
+            // console.log(total);
+            cartTotal.textContent = `Total : ${total}`;
+            
+        })  
+    }  
     }
 
 function CompletePurchase () {

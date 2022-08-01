@@ -29,20 +29,11 @@ cartButton.addEventListener("click",() => { // Aparece y desaparece el carrito
 window.addEventListener("click",e => { // Deja comprar los items del shop
     buyProduct(e.target);
     cartItemQuantity()
-     // Resumir este codigo
-    
     // console.log(e.target.value)
 })
     totalPrice()// Precio total se muestra al iniciar la pagina
     cleanHTML(cartContainer)//
-    let compraArray = JSON.parse(localStorage.getItem("Compra")); // Resumir este codigo
-    compraArray.map(elem => createItemCart(elem));  // 
-    
-    
-    
-    
-
-
+    createItemCart()
 
 ///////////////////////////////
 
