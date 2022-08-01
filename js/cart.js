@@ -2,7 +2,8 @@ import { cleanHTML } from "./cleanHTML.js";
 export const cartButton = document.querySelector(".cart-btn"),
 cartContainer = document.querySelector(".cart-container"),
 cart = document.querySelector(".cart"),
-cartTotal = document.querySelector(".cart-total p");
+cartTotal = document.querySelector(".cart-total p"),
+cartBtnPurchase = document.querySelector(".button-purchase");
 
 
 export class itemCart {
@@ -55,7 +56,7 @@ export function buyProduct(val){
         cleanHTML(cartContainer)
         let compraArray = JSON.parse(localStorage.getItem("Compra"));
         compraArray.map(elem => createItemCart(elem));   
-        totalPrice(compraArray);// Precio total
+        totalPrice();// Precio total
             
     }   
 }
@@ -96,15 +97,30 @@ function deleteItemCart(e){
 }
 
 
-export function totalPrice(array){
+export function totalPrice(){
+    let compraArray = JSON.parse(localStorage.getItem("Compra"));
     let total = 0;
-    if(array.length == 0){
+    if(compraArray.length == 0){
         cartTotal.textContent = `Total : `
     }
-    array.forEach(obj => {
+    compraArray.forEach(obj => {
         total += (obj.price * obj.qnt);
         // console.log(total);
         cartTotal.textContent = `Total : ${total}`;
         
     })    
     }
+
+function CompletePurchase () {
+    let compraArray = JSON.parse(localStorage.getItem("Compra"));
+    compraArray = "[]";
+    localStorage.setItem("Compra",compraArray)
+    totalPrice()
+    cleanHTML(cartContainer);
+    
+     // cartContainer.innerHTML = `
+     // <p>Compra completada con exito </p>
+     // `
+}
+// console.log(cartBtnPurchase);
+cartBtnPurchase.addEventListener("click", CompletePurchase)
