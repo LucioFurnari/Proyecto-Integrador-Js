@@ -3,7 +3,8 @@ $backgroundItem: rgb(43, 20, 7);
 $backgroundNavbar: rgba(177, 177, 177, 0.79);
 $textColor: rgb(223, 211, 211);
 $cartBackground: rgba(177, 177, 177, 0.79);
-
+$itemBtnColor: rgb(182, 98, 20);
+$itemBtnColorHover: rgb(248, 154, 66);
 
 *{
     margin: 0;
@@ -57,7 +58,7 @@ header{
     //     // padding: 20px 0;
     // }
     a{
-        padding: 20px;
+        padding: 18px;
     }
     a:hover{
         background-color: aqua;
@@ -78,29 +79,43 @@ header{
     position: absolute;
     position: fixed;
     right:0;
-    top:57px;
-    // width: 200px;
-    height: 600px;
-    // overflow-y: scroll;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
+    top:64px;
+    width: max(300px);
+    // height: 600px;
+    
     background-color: $cartBackground;
 }
 .cart-hide {
     display: none;
 }
+.cart-container{
+    
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+    background-color: gray;
+    
+
+}
 
 .cart-item{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 40px;
+    // 
+    
     background-color: aquamarine;
+    img {
+        width: 150px;
+        height: 100px;
+    }
+    input {
+        width: 40px;
+    }
 }
 .cart-total{
     background-color: aquamarine;
@@ -110,7 +125,7 @@ header{
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(3,26rem);
-    grid-template-rows: repeat(3,30rem);
+    
 
     
 }
@@ -124,7 +139,7 @@ header{
     border-radius: 10px;
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
     color: $textColor;
-    // height: 450px;
+    height: 550px;
     animation: fadeIn 1s;
     background-color: $backgroundItem;
     
@@ -143,12 +158,29 @@ header{
         font-size: 40px;
     }
     input{
-        width: 40px;
+        width: 48px;
+        border: none;
+        padding: 8px;
+        font-size: 16px;
     }
     img {
         width: 100%;
         height: 100%;
         object-fit:fill;
+    }
+    button {
+        border: none;
+        border-radius: 2px;
+        padding: 8px;
+        margin-bottom: 8px;
+        background-color: $itemBtnColor;
+        color: $textColor;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+    button:hover{
+        background-color: $itemBtnColorHover;
+        color: black;
     }
 }
 

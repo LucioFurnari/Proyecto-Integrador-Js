@@ -7,24 +7,26 @@ cartBtnPurchase = document.querySelector(".button-purchase");
 
 
 export class itemCart {
-    constructor(name,price,qnt,id){
+    constructor(name,img,price,qnt,id){
         this.name = name
         this.price = price
         this.qnt = qnt
         this.id = id
+        this.img = img
     }
 }
 
 export function buyProduct(val){
     if(val.value == "buyBtn") { // Guarda los valores del item a comprar
         let comprasArray = []; // Crea array para el localStorage
-        let name = val.parentNode.parentNode.children[0].textContent
+        let name = val.parentNode.parentNode.children[0].textContent;
+        let image = val.parentNode.parentNode.children[1].getAttribute("src")
         let price = parseInt(val.parentNode.parentNode.children[3].textContent);
         let quantity = parseInt(val.parentNode.children[1].value);
         let id = parseInt(val.parentNode.parentNode.getAttribute("id"))
         let booleano = false; // Valor booleano para confirmar obj en el array
         
-        let buyitem = new itemCart(name,price,quantity,id); // Crea el objeto del item a comprar 
+        let buyitem = new itemCart(name,image,price,quantity,id); // Crea el objeto del item a comprar 
         if(localStorage.getItem("Compra")){
             let localSt = JSON.parse(localStorage.getItem("Compra"));// Llama al item del localStorage
             comprasArray = localSt; // Ahora el array pasa a ser el contenido del local
@@ -71,6 +73,7 @@ export function createItemCart (){
             cartDiv.classList.add("cart-item");
             cartDiv.innerHTML = `
                 <p>${array[i].name}</p>
+                <img src=${array[i].img}>
                 <span>$${array[i].price}</span>
                 <input min="1" type="number" value="${array[i].qnt}"></input>
                 <button value="delete-item">X</button>
