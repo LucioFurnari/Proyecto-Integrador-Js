@@ -76,7 +76,7 @@ export function createItemCart (){
                 <img src=${array[i].img}>
                 <span>$${array[i].price}</span>
                 <input min="1" type="number" value="${array[i].qnt}"></input>
-                <button value="delete-item">X</button>
+                <button value="delete-item"></button>
                 `
 
             cartContainer.appendChild(cartDiv)

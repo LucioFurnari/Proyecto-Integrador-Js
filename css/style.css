@@ -106,6 +106,12 @@ header {
 .cart-item input {
   width: 40px;
 }
+.cart-item button {
+  padding: 14px;
+  border: none;
+  background-image: url("/assets/images/x.svg");
+  background-position: center;
+}
 
 .cart-total {
   background-color: aquamarine;

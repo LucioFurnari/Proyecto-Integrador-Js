@@ -116,6 +116,13 @@ header{
     input {
         width: 40px;
     }
+    button{
+        padding: 14px;
+        border: none;
+        background-image:url("/assets/images/x.svg");
+        background-position: center;
+        
+    }
 }
 .cart-total{
     background-color: aquamarine;
