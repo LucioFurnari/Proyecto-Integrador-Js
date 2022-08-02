@@ -3,7 +3,8 @@ export const cartButton = document.querySelector(".cart-btn"),
 cartContainer = document.querySelector(".cart-container"),
 cart = document.querySelector(".cart"),
 cartTotal = document.querySelector(".cart-total p"),
-cartBtnPurchase = document.querySelector(".button-purchase");
+cartBtnPurchase = document.querySelector(".button-purchase"),
+cartQuantity = document.querySelector(".cart-quantity");
 
 
 export class itemCart {
@@ -59,6 +60,7 @@ export function buyProduct(val){
         let compraArray = JSON.parse(localStorage.getItem("Compra"));
         compraArray.map(elem => createItemCart(elem));   
         totalPrice();// Precio total
+        cartTotalQuantity()
             
     }   
 }
@@ -102,6 +104,7 @@ function deleteItemCart(e){
         localStorage.setItem("Compra",JSON.stringify(compraArray))
         // console.log(name);
         totalPrice(compraArray)// Total del precio
+        cartTotalQuantity()
     }
 }
 
@@ -127,6 +130,7 @@ function CompletePurchase () {
     compraArray = "[]";
     localStorage.setItem("Compra",compraArray)
     totalPrice()
+    cartTotalQuantity()
     cleanHTML(cartContainer);
     
      // cartContainer.innerHTML = `
@@ -135,3 +139,12 @@ function CompletePurchase () {
 }
 // console.log(cartBtnPurchase);
 cartBtnPurchase.addEventListener("click", CompletePurchase)
+
+export function cartTotalQuantity(){
+    if(localStorage.getItem("Compra") != null){
+        let compraArray = JSON.parse(localStorage.getItem("Compra"));
+        let buyQuantity = compraArray.length
+        cartQuantity.textContent = buyQuantity;
+        console.log(buyQuantity);
+    }
+}

@@ -82,13 +82,20 @@ header {
   display: none;
 }
 
+.cart-quantity {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: red;
+}
+
 .cart-container {
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
   height: 600px;
-  background-color: gray;
 }
 
 .cart-item {
@@ -97,7 +104,8 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: aquamarine;
+  background-color: rgb(43, 20, 7);
+  color: rgb(223, 211, 211);
 }
 .cart-item img {
   width: 150px;

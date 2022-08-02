@@ -1,7 +1,7 @@
 import { products } from "./bd.js";
 import { itemFilter, createItems, FilterInput } from "./createItem.js";
 import { cleanHTML } from "./cleanHTML.js";
-import { cartButton, cart, cartContainer, itemCart, buyProduct, createItemCart, totalPrice } from "./cart.js";
+import { cartButton, cart, cartContainer, itemCart, buyProduct, createItemCart, totalPrice, cartTotalQuantity } from "./cart.js";
 
 // DOM Elements //
 export const shopContainerGrid = document.querySelector(".container-shop"), // Shop grid
@@ -34,6 +34,7 @@ window.addEventListener("click",e => { // Deja comprar los items del shop
     totalPrice()// Precio total se muestra al iniciar la pagina
     cleanHTML(cartContainer)//
     createItemCart()
+    cartTotalQuantity()
 
 ///////////////////////////////
 

@@ -88,14 +88,21 @@ header{
 .cart-hide {
     display: none;
 }
+.cart-quantity{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: red;
+}
 .cart-container{
     
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
     height: 600px;
-    background-color: gray;
+    
     
 
 }
@@ -106,9 +113,9 @@ header{
     justify-content: center;
     align-items: center;
     width: 100%;
-    // 
     
-    background-color: aquamarine;
+    background-color: $backgroundItem;
+    color: $textColor;
     img {
         width: 150px;
         height: 100px;
