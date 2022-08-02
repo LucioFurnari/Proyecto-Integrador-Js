@@ -3,10 +3,27 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  font-family: "Cairo", sans-serif;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
+}
 body {
-  background-color: rgb(26, 26, 26);
+  background-color: rgb(122, 79, 61);
 }
 
 main {
@@ -86,16 +103,19 @@ header {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 26rem);
+  grid-template-rows: repeat(3, 30rem);
 }
 
 .item-hide {
   display: none;
+  animation: fadeOut 1s;
 }
 
 .item {
-  border: solid violet 1px;
+  border-radius: 10px;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
   color: rgb(223, 211, 211);
-  height: 450px;
+  animation: fadeIn 1s;
   background-color: rgb(43, 20, 7);
   display: flex;
   flex-direction: column;
@@ -104,6 +124,7 @@ header {
 }
 .item h3 {
   text-align: center;
+  padding: 10px;
 }
 .item span {
   font-size: 40px;
@@ -111,9 +132,28 @@ header {
 .item input {
   width: 40px;
 }
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
 
 .item-description {
   color: rgb(223, 211, 211);
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rebeccapurple;
+  width: 100%;
+}
+
+.buttons-filter button {
+  padding: 12px;
+  margin-left: 10px;
+  border: none;
 }
 
 @media only screen and (max-width: 1300px) {
