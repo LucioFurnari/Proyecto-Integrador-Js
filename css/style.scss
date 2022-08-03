@@ -67,7 +67,10 @@ header{
     .cart-btn{
         border: none;
         background: none;
-        padding: 20px;
+        padding: 32px;
+        background-image: url("/assets/images/shopping-cart.svg");
+        background-position: center;
+        background-repeat: no-repeat;
     }
     .cart-btn:hover{
         background-color: aqua;
@@ -90,7 +93,7 @@ header{
 }
 .cart-quantity{
     position: absolute;
-    right: 0;
+    right: 8px;
     top: 0;
     color: red;
 }
@@ -116,6 +119,12 @@ header{
     
     background-color: $backgroundItem;
     color: $textColor;
+    div{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
     img {
         width: 150px;
         height: 100px;
@@ -127,7 +136,17 @@ header{
         padding: 14px;
         border: none;
         background-image:url("/assets/images/x.svg");
-        background-position: center;
+        background-repeat: no-repeat;
+        background-position:right;
+        font-size: 0;
+        
+        transition: font-size 0.3s;
+        transition-timing-function: linear;
+    }  
+    button:hover{
+        font-size: 20px;
+        
+        background-position: right;
         
     }
 }

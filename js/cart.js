@@ -74,11 +74,13 @@ export function createItemCart (){
             const cartDiv = document.createElement("div");
             cartDiv.classList.add("cart-item");
             cartDiv.innerHTML = `
+                <div>              
+                    <button value="delete-item">Cancelar Compra</button>
+                </div>
                 <p>${array[i].name}</p>
                 <img src=${array[i].img}>
                 <span>$${array[i].price}</span>
                 <input min="1" type="number" value="${array[i].qnt}"></input>
-                <button value="delete-item"></button>
                 `
 
             cartContainer.appendChild(cartDiv)
@@ -93,12 +95,12 @@ cartContainer.addEventListener("click",(e) =>{
 
 function deleteItemCart(e){
     if(e.value == "delete-item"){
-        let name = e.parentElement.firstElementChild.textContent;
+        let name = e.parentElement.parentElement.children[1].textContent;
         let compraArray = JSON.parse(localStorage.getItem("Compra"));
         compraArray.map((item,i) => {
             if(item.name == name){
                 compraArray.splice(i,1)
-                e.parentElement.remove()
+                e.parentElement.parentElement.remove()
             }
         })
         localStorage.setItem("Compra",JSON.stringify(compraArray))
