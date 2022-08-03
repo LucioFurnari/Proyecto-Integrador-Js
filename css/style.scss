@@ -144,14 +144,39 @@ header{
         transition-timing-function: linear;
     }  
     button:hover{
-        font-size: 20px;
-        
+        font-size: 16px;
         background-position: right;
-        
     }
 }
 .cart-total{
     background-color: aquamarine;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+        font-size: 20px;
+        text-align: left;
+        width: 100%;
+    }
+    button{
+        font-size: 20px;
+        border: none;
+        padding: 12px;
+        background-color: $itemBtnColor;
+        color: $textColor;
+        transition: background 0.3s ;
+    }
+    button:hover{
+        background-color: $itemBtnColorHover;
+        color: black;
+    }
+
+.complete-purchase{
+    height: 100px;
+    width: 100px;
+    color: red;
+}
 }
 //// Shop ///
 .container-shop{

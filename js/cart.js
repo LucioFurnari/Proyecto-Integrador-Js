@@ -121,7 +121,7 @@ export function totalPrice(){
         compraArray.forEach(obj => {
             total += (obj.price * obj.qnt);
             // console.log(total);
-            cartTotal.textContent = `Total : ${total}`;
+            cartTotal.textContent = `Total : ${total} $`;
             
         })  
     }  
@@ -135,9 +135,11 @@ function CompletePurchase () {
     cartTotalQuantity()
     cleanHTML(cartContainer);
     
-     // cartContainer.innerHTML = `
-     // <p>Compra completada con exito </p>
-     // `
+    cartContainer.innerHTML = `
+    <div class=complete-purchase>
+        <p>Compra completada con exito </p>
+    </div>    
+    `
 }
 // console.log(cartBtnPurchase);
 cartBtnPurchase.addEventListener("click", CompletePurchase)
