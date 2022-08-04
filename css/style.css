@@ -48,10 +48,11 @@ header h1 {
   font-size: 60px;
   text-align: center;
   width: 400px;
+  color: rgb(223, 211, 211);
 }
 
 .navbar {
-  background-color: rgba(177, 177, 177, 0.79);
+  background-color: rgba(42, 42, 42, 0.79);
   position: fixed;
   top: 0;
   width: 100%;
@@ -64,10 +65,12 @@ header h1 {
   align-items: center;
 }
 .navbar a {
+  color: rgb(223, 211, 211);
   padding: 18px;
+  text-decoration: none;
 }
 .navbar a:hover {
-  background-color: aqua;
+  background-color: rgba(214, 157, 0, 0.696);
 }
 .navbar .cart-btn {
   border: none;
@@ -149,7 +152,8 @@ header h1 {
 }
 
 .cart-total {
-  background-color: aquamarine;
+  background-color: rgba(43, 43, 43, 0.8);
+  color: rgb(223, 211, 211);
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
