@@ -46,14 +46,14 @@ function cartItemQuantity() {
         item.addEventListener("change", (e) => {
         let compraArray = JSON.parse(localStorage.getItem("Compra")); // Resumir este codigo
          // console.log(item.parentElement.firstElementChild.textContent);
-        let name = item.parentElement.firstElementChild.textContent;
+        let name = item.parentElement.children[1].textContent;
         let value = parseInt(e.target.value);
         compraArray.map(elem => {
             if(elem.name == name){
                 elem.qnt = value;
             }
             localStorage.setItem("Compra",JSON.stringify(compraArray))
-        })
+            })
         totalPrice(compraArray)// Precio total se muestra al iniciar la pagina
          // console.log(e.target.value);
         })

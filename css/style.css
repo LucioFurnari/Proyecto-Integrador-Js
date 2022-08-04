@@ -35,10 +35,19 @@ main {
 
 header {
   min-height: 100vh;
-  background-image: url("/assets/bgcoffe.jpg");
+  background-image: url("/assets/bgchocolate.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+header h1 {
+  font-size: 60px;
+  text-align: center;
+  width: 400px;
 }
 
 .navbar {
@@ -121,6 +130,8 @@ header {
 }
 .cart-item input {
   width: 40px;
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 .cart-item button {
   padding: 14px;
@@ -171,6 +182,7 @@ header {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, 26rem);
+  margin-top: 12px;
 }
 
 .item-hide {
@@ -231,13 +243,14 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rebeccapurple;
+  justify-content: center;
+  background-color: rgb(27, 27, 27);
   width: 100%;
+  padding: 16px;
 }
 
 .buttons-filter button {
   padding: 12px;
-  margin-left: 10px;
   border: none;
 }
 
