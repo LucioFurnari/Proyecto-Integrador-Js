@@ -8,6 +8,7 @@ $itemBtnColorHover: rgb(248, 154, 66);
 $backgroundFilter:rgb(27, 27, 27);
 $backgroundHover: rgba(214, 157, 0, 0.696);
 $backgroundCartTotal: rgba(43, 43, 43, 0.8);
+$backgroundFooter: rgb(2, 1, 1);
 
 *{
     margin: 0;
@@ -15,6 +16,9 @@ $backgroundCartTotal: rgba(43, 43, 43, 0.8);
     box-sizing: border-box;
     list-style: none;
     font-family: 'Cairo', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
 }
 // Animation //
 @keyframes fadeIn {
@@ -25,6 +29,7 @@ $backgroundCartTotal: rgba(43, 43, 43, 0.8);
     100% { opacity: 1; }
     0% { opacity: 0; }
 }
+
 ///////
 body{
     background-color: $backgroundColor
@@ -74,6 +79,8 @@ header{
         color: $textColor;
         padding: 18px;
         text-decoration: none;
+        border-radius:6px;
+        transition: all 0.3s;
     }
     a:hover{
         background-color:$backgroundHover;
@@ -86,9 +93,11 @@ header{
         background-image: url("/assets/images/shopping-cart.svg");
         background-position: center;
         background-repeat: no-repeat;
+        border-radius:6px;
+        transition: all 0.3s;
     }
     .cart-btn:hover{
-        background-color: aqua;
+        background-color:$backgroundHover;
     }
     
 }
@@ -100,7 +109,6 @@ header{
     top:64px;
     width: max(300px);
     // height: 600px;
-    
     background-color: $cartBackground;
 }
 .cart-hide {
@@ -120,7 +128,6 @@ header{
     align-items: center;
     gap: 10px;
     height: 600px;
-    
     
 
 }
@@ -202,7 +209,7 @@ header{
     gap: 16px;
     grid-template-columns: repeat(3,26rem);
     margin-top: 12px;
-
+    min-height: 600px;
     
 }
 .item-hide {
@@ -242,7 +249,7 @@ header{
     img {
         width: 100%;
         height: 100%;
-        object-fit:fill;
+        object-fit:cover;
     }
     button {
         border: none;
@@ -282,6 +289,23 @@ header{
         // margin-left: 10px;
 
         border: none;
+    }
+}
+// Footer //
+footer{
+    display: flex;
+    justify-content: flex-start;
+    background-color: $backgroundFooter;
+}
+.footer-container{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    a{
+        text-decoration: none;
+        color: $textColor;
     }
 }
 

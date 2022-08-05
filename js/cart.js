@@ -129,17 +129,19 @@ export function totalPrice(){
 
 function CompletePurchase () {
     let compraArray = JSON.parse(localStorage.getItem("Compra"));
-    compraArray = "[]";
-    localStorage.setItem("Compra",compraArray)
-    totalPrice()
-    cartTotalQuantity()
-    cleanHTML(cartContainer);
-    
-    cartContainer.innerHTML = `
-    <div class=complete-purchase>
-        <p>Compra completada con exito </p>
-    </div>    
-    `
+    if(compraArray.length > 0){
+        compraArray = "[]";
+        localStorage.setItem("Compra",compraArray)
+        totalPrice()
+        cartTotalQuantity()
+        cleanHTML(cartContainer);
+        
+        cartContainer.innerHTML = `
+        <div class=complete-purchase>
+            <p>Compra completada con exito </p>
+        </div>    
+        `
+    }
 }
 // console.log(cartBtnPurchase);
 cartBtnPurchase.addEventListener("click", CompletePurchase)

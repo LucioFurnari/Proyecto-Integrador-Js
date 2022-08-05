@@ -9,7 +9,7 @@ export function createItems(arr, elem){ // Crea card de los productos //
         <h3>${arr[i].name}</h3>
         <img src=${arr[i].img}>
         <p class="item-description">${arr[i].description}</p>
-        <span>${arr[i].price} $</span>
+        <span>${arr[i].price}$</span>
         <div>
             <button class="buy-btn" value="buyBtn">Comprar</button>
             <input type="number" min=1 value=1>

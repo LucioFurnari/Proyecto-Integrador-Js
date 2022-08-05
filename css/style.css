@@ -6,6 +6,10 @@
   font-family: "Cairo", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -68,6 +72,8 @@ header h1 {
   color: rgb(223, 211, 211);
   padding: 18px;
   text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s;
 }
 .navbar a:hover {
   background-color: rgba(214, 157, 0, 0.696);
@@ -79,9 +85,11 @@ header h1 {
   background-image: url("/assets/images/shopping-cart.svg");
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 6px;
+  transition: all 0.3s;
 }
 .navbar .cart-btn:hover {
-  background-color: aqua;
+  background-color: rgba(214, 157, 0, 0.696);
 }
 
 .cart {
@@ -187,6 +195,7 @@ header h1 {
   gap: 16px;
   grid-template-columns: repeat(3, 26rem);
   margin-top: 12px;
+  min-height: 600px;
 }
 
 .item-hide {
@@ -222,7 +231,7 @@ header h1 {
 .item img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 .item button {
   border: none;
@@ -256,6 +265,23 @@ header h1 {
 .buttons-filter button {
   padding: 12px;
   border: none;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgb(2, 1, 1);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+}
+.footer-container a {
+  text-decoration: none;
+  color: rgb(223, 211, 211);
 }
 
 @media only screen and (max-width: 1300px) {
