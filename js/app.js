@@ -7,7 +7,9 @@ import { cartButton, cart, cartContainer, itemCart, buyProduct, createItemCart, 
 export const shopContainerGrid = document.querySelector(".container-shop"), // Shop grid
     shopFilter = document.querySelector(".buttons-filter"), // Btns container
     // shopBtnShow = document.querySelector(".btn-showshop"), // Btn Muestra todo el shop
-    inputFilter = document.querySelector(".input-filter");
+    inputFilter = document.querySelector(".input-filter"),
+    btnMenu = document.querySelector(".menu-btn"),
+    menuContainer = document.querySelector(".menu-container");
     
     createItems(products,shopContainerGrid)// Crea items del shop //);
     
@@ -37,7 +39,9 @@ window.addEventListener("click",e => { // Deja comprar los items del shop
     cartTotalQuantity()
 
 ///////////////////////////////
-
+btnMenu.addEventListener("click",() => {
+    menuContainer.classList.toggle("menu-show");
+})
 
 function cartItemQuantity() {
     let itemQntCart = document.querySelectorAll(".cart-item input");

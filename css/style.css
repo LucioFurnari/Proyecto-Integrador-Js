@@ -64,6 +64,11 @@ header h1 {
   justify-content: space-between;
   align-items: center;
 }
+.navbar p {
+  color: rgb(223, 211, 211);
+  font-size: 30px;
+  margin-left: 16px;
+}
 .navbar ul {
   display: flex;
   align-items: center;
@@ -90,6 +95,17 @@ header h1 {
 }
 .navbar .cart-btn:hover {
   background-color: rgba(214, 157, 0, 0.696);
+}
+
+.menu-btn {
+  display: none;
+  border: none;
+  padding: 20px;
+  background-image: url("/assets/images/menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  color: rgb(223, 211, 211);
+  background-color: rgba(42, 42, 42, 0.79);
 }
 
 .cart {
@@ -138,11 +154,15 @@ header h1 {
 .cart-item img {
   width: 150px;
   height: 100px;
+  object-fit: cover;
 }
 .cart-item input {
   width: 40px;
   font-size: 20px;
   margin-bottom: 8px;
+  border: none;
+  background-color: rgb(43, 20, 7);
+  color: rgb(223, 211, 211);
 }
 .cart-item button {
   padding: 14px;
@@ -227,6 +247,8 @@ header h1 {
   border: none;
   padding: 8px;
   font-size: 16px;
+  color: rgb(223, 211, 211);
+  background-color: rgb(43, 20, 7);
 }
 .item img {
   width: 100%;
@@ -243,7 +265,8 @@ header h1 {
   font-size: 16px;
   transition: background 0.3s;
 }
-.item button:hover {
+.item button:hover,
+.item button:focus {
   background-color: rgb(248, 154, 66);
   color: black;
 }
@@ -261,10 +284,34 @@ header h1 {
   width: 100%;
   padding: 16px;
 }
+.filter-container .input-filter {
+  border: none;
+  border-bottom: 1px solid rgb(223, 211, 211);
+  padding: 10px;
+  padding-left: 40px;
+  color: rgb(223, 211, 211);
+  font-size: 16px;
+  font-weight: 400;
+  background-color: rgb(27, 27, 27);
+  background-image: url("/assets/images/search.svg");
+  background-repeat: no-repeat;
+  background-position: 5px;
+}
 
 .buttons-filter button {
-  padding: 12px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
   border: none;
+  color: rgb(223, 211, 211);
+  background-color: rgb(27, 27, 27);
+  transition: background 0.3s;
+  transition-timing-function: ease;
+}
+.buttons-filter button:hover,
+.buttons-filter button:focus {
+  background-color: rgb(182, 98, 20);
 }
 
 footer {
@@ -292,6 +339,35 @@ footer {
 @media only screen and (max-width: 880px) {
   .container-shop {
     grid-template-columns: repeat(1, 20rem);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .menu-btn {
+    display: inline-block;
+  }
+  .menu-btn:hover {
+    background-color: red;
+  }
+  .menu-container {
+    display: none;
+  }
+  .menu-show {
+    position: absolute;
+    top: 60px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(42, 42, 42, 0.79);
+  }
+  .menu-show ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-show li {
+    padding: 10px;
+  }
+  .menu-show a {
+    padding: 10px;
   }
 }
 

@@ -68,6 +68,12 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    p{
+        color: $textColor;
+        font-size: 30px;
+        margin-left: 16px;
+        
+    }
     ul{
         display: flex;
         align-items: center;
@@ -85,6 +91,7 @@ header{
     a:hover{
         background-color:$backgroundHover;
     }
+    
     /// Cart ///
     .cart-btn{
         border: none;
@@ -101,6 +108,18 @@ header{
     }
     
 }
+.menu-btn{
+    display: none;
+    border: none;
+    padding: 20px;
+    background-image: url("/assets/images/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: $textColor;
+    background-color: $backgroundNavbar;
+}
+
+
 // Cart //
 .cart {
     position: absolute;
@@ -150,11 +169,15 @@ header{
     img {
         width: 150px;
         height: 100px;
+        object-fit: cover;
     }
     input {
         width: 40px;
         font-size: 20px;
         margin-bottom: 8px;
+        border: none;
+        background-color: $backgroundItem;
+        color: $textColor;
     }
     button{
         padding: 14px;
@@ -244,7 +267,10 @@ header{
         width: 48px;
         border: none;
         padding: 8px;
+        
         font-size: 16px;
+        color: $textColor;
+        background-color: $backgroundItem;
     }
     img {
         width: 100%;
@@ -261,7 +287,8 @@ header{
         font-size: 16px;
         transition: background 0.3s;
     }
-    button:hover{
+    button:hover,
+    button:focus{
         background-color: $itemBtnColorHover;
         color: black;
     }
@@ -281,14 +308,36 @@ header{
     background-color: $backgroundFilter;
     width: 100%;
     padding: 16px;
+    .input-filter {
+        border: none;
+        border-bottom: 1px solid $textColor;
+        padding: 10px;
+        padding-left: 40px;
+        color: $textColor;
+        font-size: 16px;
+        font-weight:400;
+        background-color: $backgroundFilter;
+        background-image: url("/assets/images/search.svg");
+        background-repeat: no-repeat;
+        background-position: 5px ;
+    }
 }
 .buttons-filter{
-    
     button{
-        padding: 12px;
-        // margin-left: 10px;
-
+        padding: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 6px;
         border: none;
+        color: $textColor;
+        background-color: $backgroundFilter;
+
+        transition: background 0.3s;
+        transition-timing-function:ease;
+    }
+    button:hover,
+    button:focus {
+        background-color: $itemBtnColor;
     }
 }
 // Footer //
@@ -319,4 +368,37 @@ footer{
     .container-shop{
         grid-template-columns:repeat(1,20rem)
     }
+}
+@media only screen and (max-width: 600px){
+    .menu-btn {
+        display: inline-block;
+    }
+    .menu-btn:hover{
+        background-color: red;
+    }
+    .menu-container{
+        display: none;
+    }
+    .menu-show{
+        position: absolute;
+        top: 60px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-color: $backgroundNavbar;
+        ul {
+            display: flex;
+            flex-direction: column;
+        }        
+        li {
+            padding: 10px;
+        }
+        a {
+            padding: 10px;
+        }
+    }
+    
+    // .navbar a{
+    //     display: none;
+    // }
 }
