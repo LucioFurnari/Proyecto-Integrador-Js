@@ -354,7 +354,7 @@ footer {
     display: inline-block;
   }
   .menu-btn:hover {
-    background-color: red;
+    background-color: rgba(214, 157, 0, 0.696);
   }
   .menu-container {
     display: none;
