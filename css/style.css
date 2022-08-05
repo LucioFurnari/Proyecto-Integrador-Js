@@ -26,6 +26,14 @@ html {
     opacity: 0;
   }
 }
+@keyframes menuShow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 body {
   background-color: rgb(122, 79, 61);
 }
@@ -352,6 +360,7 @@ footer {
     display: none;
   }
   .menu-show {
+    animation: menuShow 0.4s;
     position: absolute;
     top: 60px;
     display: flex;
