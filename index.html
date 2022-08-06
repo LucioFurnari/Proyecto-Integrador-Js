@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet"> 
-
+    <script src="https://kit.fontawesome.com/85f7d9b7fb.js" crossorigin="anonymous"></script>
 
     <link href='https://css.gg/coffee.css' rel='stylesheet'>
     <script defer src="./js/app.js" type="module"></script>
@@ -19,14 +19,14 @@
     
 </head>
 <body>
-    <header> <!-- Encabezado de la pagina, Navbar -->
+    <header id="header"> <!-- Encabezado de la pagina, Navbar -->
         <nav class="navbar">
             <p>C H O C O L A T</p>
             <div class="menu-container">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#header">Inicio</a></li>
                     <li><a href="#shop">Productos</a></li>
-                    <li><a href="#">Contactos</a></li>
+                    <li><a href="#contact">Contactos</a></li>
                 </ul> 
             </div>
                 <button class="menu-btn"></button>            
@@ -61,17 +61,33 @@
 
         </div>
     </main>
-    <div class="contact-container">
-
-    </div>
+    <!-- <div class="contact-container" id="contact">
+        <form>
+            <div>
+                <label>Nombre: </label>
+                <input type="text">
+                <label>Apellido</label>
+                <input type="text">
+            </div>  
+            <label>E-mail: </label>
+            <input type="email">
+            <label>Mensaje: </label>
+            <textarea></textarea>
+        </form>
+    </div> -->
     <footer>
         <div class="footer-container">
-            <a href="#">Para tu Negocio</a>
-            <a href="#">Aplicaciones Móviles</a>
-            <a href="#">¿Quienes Somos?</a>
+            <a href="#">Para tu Negocio</a> 
+            <a href="#">¿Quienes Somos?</a>  
             <a href="#">Empleo</a>
-            <a href="#"></a>
         </div>  
+        <div class="contac-container">
+            <ul>
+                <li><i class="fab fa-instagram"></i>Chocolat</li>
+                <li><i class="fab fa-twitter"></i>@Chocolat</li>
+                <li><i class="fas fa-map-marker-alt"></i>Calle del chocolate</li>
+            </ul>
+        </div>
     </footer>
 </body>
 </html>
