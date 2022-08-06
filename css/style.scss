@@ -368,6 +368,11 @@ footer{
 }
 .contac-container {
     font-size: 20px;
+    a{
+        text-decoration: none;
+        color: $textColor;
+        
+    }
 }
 
 // Media Query //
